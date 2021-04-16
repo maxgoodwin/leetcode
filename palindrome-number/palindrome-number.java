@@ -10,12 +10,8 @@ class Solution {
 
         originalNumber = x;
         reversedNumber(x);
-
-        if (r == originalNumber) {
-            return true;
-        }
-
-        return false;
+        
+        return r == originalNumber;
     }
 
     private void reversedNumber(int x) {
