@@ -1,10 +1,9 @@
 class Solution:
   def longestConsecutive(self, nums: List[int]) -> int:
-    numSet = set()
+    numSet = set(nums)
     alreadyCheckedSet = set()
     result = 0
     
-    for num in nums: numSet.add(num)
     for i in range(len(nums)):
       if nums[i] in alreadyCheckedSet: continue
       
