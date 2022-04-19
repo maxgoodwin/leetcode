@@ -1,8 +1,10 @@
 class Solution:
   def longestConsecutive(self, nums: List[int]) -> int:
-    numSet = set(nums)
+    numSet = set()
     result = 0
     
+    for num in nums: numSet.add(num)
+      
     for num in nums:
       if num - 1 in numSet: continue
         
