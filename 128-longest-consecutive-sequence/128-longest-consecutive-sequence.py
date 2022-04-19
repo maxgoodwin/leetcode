@@ -1,15 +1,13 @@
 class Solution:
   def longestConsecutive(self, nums: List[int]) -> int:
-    numSet = set()
+    numSet = set(nums)
     result = 0
     
-    for num in nums: numSet.add(num)
-      
-    for num in nums:
-      if num - 1 in numSet: continue
+    for i in range(len(nums)):
+      if nums[i] - 1 in numSet: continue
         
       consecutiveCount = 1
-      checkNum = num + 1
+      checkNum = nums[i] + 1
       
       while checkNum in numSet:
         consecutiveCount += 1
