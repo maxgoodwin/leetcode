@@ -8,11 +8,11 @@ class Solution:
         
         maxFreq = max(maxFreq, freqDict[s[end]])
         
-        if ((end-start+1) - maxFreq) > k:
+        if ((end - start + 1) - maxFreq) > k:
             freqDict[s[start]] -= 1
             start += 1
         else:
-            maxLength = max(maxLength, end-start+1)
+            maxLength = max(maxLength, end - start + 1)
         end += 1
         
     return maxLength
