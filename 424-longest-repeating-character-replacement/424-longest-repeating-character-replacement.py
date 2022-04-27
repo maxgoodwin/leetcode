@@ -1,18 +1,17 @@
 class Solution:
   def characterReplacement(self, s: str, k: int) -> int:
-    freqDict = defaultdict(int)
-    maxFreq = maxLength = start = end = 0
+    start = end = maxFreqInRange = result = 0
+    charsInCurrentRange = defaultdict(int)
     
     while end < len(s):
-        freqDict[s[end]] += 1
-        
-        maxFreq = max(maxFreq, freqDict[s[end]])
-        
-        if ((end - start + 1) - maxFreq) > k:
-            freqDict[s[start]] -= 1
-            start += 1
-        else:
-            maxLength = max(maxLength, end - start + 1)
-        end += 1
-        
-    return maxLength
+      charsInCurrentRange[s[end]] += 1
+      
+      maxFreqInRange = max(maxFreqInRange, charsInCurrentRange[s[end]])
+      
+      if end - start + 1 - maxFreqInRange > k:
+        charsInCurrentRange[s[start]] -= 1
+        start += 1
+      else: result = max(result, end - start + 1)
+      end += 1
+      
+    return result
